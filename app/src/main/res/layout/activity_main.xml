@@ -1,35 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:ignore="ExtraText">
+import android.os.Bundle;
+    import android.widget.ImageView;
+    import android.widget.TextView;
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_heigth="wrap_content"
-        android:text="my first app"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constrainBottom_toBottomOf="parent"
-        app:layout_constrainLeft_toLeftOf="parent"
-        app:layout_constrainRight_toRightOf="parent"
-        app:layout_constrainTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints,SpUsage,TextSizeCheck" />
+    import androidx.appcompat.app.AppCompatActivity;
+    import androidx.constraintlayout.widget.ConstraintLayout;
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:contentDescription="TODO"
-        app:layout_constrainStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/layar"
-        tools:ignore="ContentDescription,HardcodedText,VisualLintBounds" />
+    public class MainActivity extends AppCompatActivity {
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    private TextView textView;
+    private ImageView imageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    textView = findViewById(R.id.textView);
+    imageView = findViewById(R.id.imageView);
+
+    textView.setText("my first app");
+    textView.setTextSize(20);
+    textView.setTypeface(null, Typeface.BOLD);
+
+    imageView.setImageResource(R.drawable.layar);
+    imageView.setAdjustViewBounds(true);
+    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+    ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
+    ConstraintLayout.LayoutParams.MATCH_PARENT,
+    0
+    );
+    layoutParams.setMargins(0, 50, 0, 0);
+    imageView.setLayoutParams(layoutParams);
+    }
+    }
